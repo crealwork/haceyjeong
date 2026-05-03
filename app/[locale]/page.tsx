@@ -3,16 +3,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import type { Locale } from "@/i18n/routing";
-import {
-  DropCap,
-  PullQuote,
-  FieldNote,
-  TableOfContents,
-  EditorialImage,
-} from "@/components/editorial";
 
-// TODO: replace with actual production domain (set NEXT_PUBLIC_SITE_URL env var)
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.ca";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://haceyjeong.com";
 
 export async function generateMetadata({
   params,
@@ -20,47 +12,76 @@ export async function generateMetadata({
   params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const isEn = locale === "en";
   return {
-    // TODO: replace with brand-specific title and description
-    title: isEn
-      ? "{{BRAND_NAME}} — {{TAGLINE}} | {{REALTOR_NAME}}, REALTOR®"
-      : "{{BRAND_NAME_KO}} — {{TAGLINE_KO}} | {{REALTOR_NAME_KO}}, 리얼터®",
-    description: isEn
-      ? "{{REALTOR_NAME}}, REALTOR® with {{BROKERAGE}}. {{META_DESCRIPTION_EN}}"
-      : "{{REALTOR_NAME_KO}}, {{BROKERAGE_KO}} 리얼터®. {{META_DESCRIPTION_KO}}",
+    title: "Hacey Jeong, REALTOR® — Notes from Vancouver Island",
+    description:
+      "Hacey Jeong, REALTOR® with Royal LePage Nanaimo Realty. Bilingual EN/KO. Helping buyers and sellers across Nanaimo, Parksville, Qualicum Beach, Ladysmith, Duncan, and Victoria.",
     alternates: {
       canonical: `${BASE_URL}/${locale}`,
-      languages: {
-        en: `${BASE_URL}/en`,
-        ko: `${BASE_URL}/ko`,
-      },
     },
     openGraph: {
-      // TODO: replace with brand-specific OG title and description
-      title: "{{BRAND_NAME}} — {{TAGLINE}}",
-      description: "{{OG_DESCRIPTION_EN}}",
+      title: "Hacey Jeong, REALTOR® — Notes from Vancouver Island",
+      description:
+        "Buying, selling, and relocating across Vancouver Island, with quiet attention to every detail.",
       url: `${BASE_URL}/${locale}`,
       type: "website",
       images: [
         {
-          // TODO: replace with actual hero image (generated via scripts/prompts.json)
           url: "/images/editorial/hero-light.jpg",
           width: 1536,
           height: 1024,
-          alt: "{{HERO_IMAGE_ALT}}",
+          alt: "Soft morning light through Vancouver Island cedar.",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: "{{BRAND_NAME}} — {{TAGLINE}}",
-      description: "{{OG_DESCRIPTION_EN}}",
+      title: "Hacey Jeong, REALTOR® — Notes from Vancouver Island",
+      description:
+        "Buying, selling, and relocating across Vancouver Island, with quiet attention to every detail.",
       images: ["/images/editorial/hero-light.jpg"],
     },
-    robots: locale === "ko" ? { index: false, follow: false } : undefined,
   };
 }
+
+type Specialty = {
+  num: string;
+  title: string;
+  body: string;
+  image: string;
+  imageAlt: string;
+};
+
+const specialties: Specialty[] = [
+  {
+    num: "01",
+    title: "First-time buyers",
+    body: "Inspections, financing, strata documents, closing — at your pace, in plain language.",
+    image: "/images/editorial/object-doorknob.jpg",
+    imageAlt: "A house key on weathered cedar.",
+  },
+  {
+    num: "02",
+    title: "Resale homes",
+    body: "Condos, townhomes, and detached listings across the central and south Island.",
+    image: "/images/editorial/arch-break.jpg",
+    imageAlt: "A warm corner of a Pacific Northwest cabin.",
+  },
+  {
+    num: "03",
+    title: "Investment property",
+    body: "Rental yield, cycle positioning, and exit planning — practical, not promotional.",
+    image: "/images/editorial/presale-detail-maquette.jpg",
+    imageAlt: "Weathered cedar shingles on a Vancouver Island cabin.",
+  },
+  {
+    num: "04",
+    title: "Luxury & relocation",
+    body: "Whether it's a luxury home or a full move-from-overseas, I handle it the same way: with quiet attention to every detail.",
+    image: "/images/editorial/presale-detail-scaffolding.jpg",
+    imageAlt: "Arbutus bark, peeling in warm rust ribbons.",
+  },
+];
 
 export default async function HomePage({
   params,
@@ -70,159 +91,289 @@ export default async function HomePage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations();
+  const featuredTestimonial = (t.raw("testimonials.items") as {
+    body: string;
+    attribution: string;
+    role: string;
+  }[])[0];
   const areas = t.raw("territory.areas") as string[];
-  const tocEntries = t.raw("homeContents.entries") as { num: number; label: string; href: string }[];
-  const fieldNoteKeys = ["presale", "resale", "investment", "firstHome"] as const;
 
   return (
     <>
-      {/* 01 — Masthead + Hero */}
-      <section className="relative min-h-[68vh] flex items-end pt-32 pb-16 md:pb-24 overflow-hidden bg-[var(--color-canvas)]">
-        <div className="absolute inset-0">
-          <EditorialImage
-            src="/images/editorial/hero-light.jpg"
-            alt=""
-            framing="wide"
-            priority
-            sizes="100vw"
-            className="object-cover w-full h-full"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-white/85 via-white/40 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-b from-transparent to-white/60" />
-        </div>
-        <div className="container-wide relative z-10">
-          <p className="eyebrow mb-6">{t("hero.eyebrow")}</p>
-          <h1 className="type-hero-headline max-w-3xl whitespace-pre-line">{t("hero.headline")}</h1>
-          <div className="mt-12 flex flex-wrap gap-4">
-            <Link href="/presales" className="btn-ghost">
-              {t("hero.ctaPrimary")}
-            </Link>
-            <Link href="/contact" className="btn-primary">
-              {t("hero.ctaSecondary")}
-            </Link>
-          </div>
+      {/* 01 — Full-bleed hero. Subtle full-image darkening + bottom gradient so text always reads. */}
+      <section className="relative h-[92vh] min-h-[640px] w-full overflow-hidden bg-[var(--color-ink)]">
+        <Image
+          src="/images/editorial/hero-light.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        {/* gentle full-image scrim + heavier bottom gradient — guarantees text contrast */}
+        <div className="absolute inset-0 bg-black/15" />
+        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/65 via-black/30 to-transparent" />
+        <div className="container-wide relative h-full flex flex-col justify-end pb-16 md:pb-24">
+          <h1
+            className="max-w-3xl"
+            style={{
+              fontFamily: "var(--font-display)",
+              fontWeight: 400,
+              fontSize: "clamp(40px, 6vw, 76px)",
+              lineHeight: 1.05,
+              letterSpacing: "-0.02em",
+              fontVariationSettings: '"opsz" 96',
+              color: "#ffffff",
+            }}
+          >
+            Hacey Jeong, REALTOR<sup className="text-[0.5em] align-super">®</sup>
+          </h1>
+          <p
+            className="mt-4 max-w-xl"
+            style={{
+              fontFamily: "var(--font-display)",
+              fontStyle: "italic",
+              fontWeight: 400,
+              fontSize: "clamp(18px, 1.6vw, 22px)",
+              lineHeight: 1.4,
+              color: "rgba(255,255,255,0.92)",
+            }}
+          >
+            Notes from Vancouver Island.
+          </p>
         </div>
       </section>
 
-      {/* 02 — Contents */}
-      <section className="section-pad bg-white border-t border-[var(--color-line)]">
-        <div className="container-wide max-w-3xl">
-          <TableOfContents entries={tocEntries} heading={t("homeContents.heading")} />
+      {/* 02 — Intro line. Single sentence, big italic, centered, restrained. No "Editor's Note" eyebrow. */}
+      <section className="bg-[var(--color-canvas)] py-24 md:py-36">
+        <div className="container-wide max-w-3xl text-center">
+          <p
+            style={{
+              fontFamily: "var(--font-display)",
+              fontStyle: "italic",
+              fontWeight: 300,
+              fontSize: "clamp(24px, 3vw, 38px)",
+              lineHeight: 1.35,
+              letterSpacing: "-0.01em",
+              color: "var(--color-ink)",
+              fontVariationSettings: '"opsz" 60',
+            }}
+          >
+            Thirty countries, three careers, and one quiet decision to call this island home.
+          </p>
         </div>
       </section>
 
-      {/* 03 — Editor's Note */}
-      <section id="editor-note" className="section-pad bg-[var(--color-canvas)]">
-        <div className="container-wide grid md:grid-cols-[1fr_auto] gap-12 md:gap-16 max-w-5xl items-start">
-          <div className="essay-column">
-            <p className="eyebrow mb-6">{t("editorNote.eyebrow")}</p>
-            <DropCap>{t("editorNote.body")}</DropCap>
-            <p
-              className="mt-6 italic"
-              style={{ fontFamily: "var(--font-display)", color: "var(--color-accent-700)" }}
-            >
-              {t("editorNote.signoff")}
-            </p>
-          </div>
-          <div className="hidden md:block w-32 h-32 lg:w-40 lg:h-40 shrink-0">
-            {/* TODO: replace alt text with realtor name */}
+      {/* 03 — Wide split: portrait + short bio. No drop cap, no eyebrow. Aritzia "About the designer" feel. */}
+      <section className="bg-white border-t border-[var(--color-line)]">
+        <div className="container-wide grid md:grid-cols-[5fr_7fr] gap-0 md:gap-16 items-stretch">
+          <div className="relative aspect-[4/5] md:aspect-auto md:min-h-[560px] bg-[var(--color-canvas)]">
             <Image
               src="/images/editorial/realtor-portrait-bw.jpg"
-              alt="{{REALTOR_FULL_NAME}}"
-              width={160}
-              height={160}
-              className="w-full h-full object-cover rounded-full grayscale"
+              alt="Hacey Jeong, portrait."
+              fill
+              sizes="(max-width: 768px) 100vw, 40vw"
+              className="object-cover"
             />
+          </div>
+          <div className="px-6 py-16 md:px-0 md:py-24 max-w-xl">
+            <p
+              className="text-xs uppercase mb-6"
+              style={{
+                letterSpacing: "0.28em",
+                color: "var(--color-graphite)",
+                fontWeight: 500,
+              }}
+            >
+              About
+            </p>
+            <p className="type-body-essay mb-6">
+              Bilingual REALTOR<sup>®</sup> with Royal LePage Nanaimo Realty.
+              Originally from South Korea, with a background that runs from chemical
+              engineering to global oil &amp; gas to small-business ownership — now
+              applied to real estate on Vancouver Island.
+            </p>
+            <p className="type-body-essay mb-10 text-[var(--color-graphite)]">
+              Bilingual English &amp; 한국어. 한국어로 편하게 연락하셔도 됩니다.
+            </p>
+            <Link
+              href="/about"
+              className="inline-block text-sm font-medium border-b border-[var(--color-ink)] pb-1 hover:border-[var(--color-accent)] hover:text-[var(--color-accent-700)] transition-colors"
+              style={{ letterSpacing: "0.06em" }}
+            >
+              Read the full story →
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* 04 — Field Notes */}
-      <section id="field-notes" className="section-pad bg-white">
-        <div className="container-wide">
-          <h2 className="type-h2 mb-12">{t("fieldNotes.title")}</h2>
-          <div className="grid md:grid-cols-2 gap-px bg-[var(--color-line)] border border-[var(--color-line)]">
-            {fieldNoteKeys.map((key, i) => (
-              <FieldNote
-                key={key}
-                number={i + 1}
-                title={t(`fieldNotes.${key}.title`)}
-              >
-                {t(`fieldNotes.${key}.body`)}
-              </FieldNote>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 05 — Territory */}
-      <section id="territory" className="section-pad bg-[var(--color-canvas)]">
-        <div className="container-wide grid md:grid-cols-[1.3fr_1fr] gap-12 md:gap-20">
-          <div>
-            <p className="eyebrow mb-6">{t("territory.eyebrow")}</p>
-            <h2 className="type-h2 mb-6">{t("territory.title")}</h2>
-            <p className="type-body-essay max-w-md">{t("territory.body")}</p>
-          </div>
-          {/* TODO: replace neighborhood images with brand-specific images generated via scripts/prompts.json */}
-          <div className="grid grid-cols-2 gap-3">
-            <Image
-              src="/images/editorial/neighborhood-1.jpg"
-              alt="{{AREA_1}}"
-              width={400}
-              height={400}
-              className="w-full h-auto"
-            />
-            <Image
-              src="/images/editorial/neighborhood-2.jpg"
-              alt="{{AREA_2}}"
-              width={400}
-              height={400}
-              className="w-full h-auto"
-            />
-            <Image
-              src="/images/editorial/neighborhood-3.jpg"
-              alt="{{AREA_3}}"
-              width={400}
-              height={400}
-              className="w-full h-auto"
-            />
-            <Image
-              src="/images/editorial/neighborhood-4.jpg"
-              alt="{{AREA_4}}"
-              width={400}
-              height={400}
-              className="w-full h-auto"
-            />
-          </div>
-        </div>
-        <div className="container-wide mt-10">
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-[var(--color-graphite)]">
-            {areas.map((a) => (
-              <span key={a}>{a}</span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 06 — Pull Quote */}
-      <section id="pull-quote" className="section-pad bg-[var(--color-accent-50)]">
-        <div className="container-wide essay-column text-center">
-          <PullQuote attribution={t("pullQuote.attribution")}>
-            {t("pullQuote.text")}
-          </PullQuote>
-        </div>
-      </section>
-
-      {/* 07 — Subscribe */}
-      <section id="subscribe" className="section-pad bg-[var(--color-ink)] text-white">
-        <div className="container-wide max-w-2xl text-center">
-          <p className="eyebrow mb-6" style={{ color: "var(--color-accent)" }}>
-            {t("subscribe.eyebrow")}
+      {/* 04 — Specialties as alternating image+text rows. 4 rows, no grid. Aritzia "Featured" pattern. */}
+      <section className="bg-[var(--color-canvas)] border-t border-[var(--color-line)]">
+        <div className="container-wide max-w-6xl py-16 md:py-24">
+          <p
+            className="text-xs uppercase text-center mb-16"
+            style={{
+              letterSpacing: "0.28em",
+              color: "var(--color-graphite)",
+              fontWeight: 500,
+            }}
+          >
+            What I do
           </p>
-          <h2 className="type-h2 mb-6" style={{ color: "#ffffff" }}>{t("subscribe.title")}</h2>
-          <p className="type-body-essay mb-10" style={{ color: "rgba(255,255,255,0.8)" }}>{t("subscribe.body")}</p>
-          <Link href="/contact" className="btn-primary">
-            {t("subscribe.button")}
+          <div className="space-y-20 md:space-y-32">
+            {specialties.map((s, i) => {
+              const reverse = i % 2 === 1;
+              return (
+                <div
+                  key={s.num}
+                  className={`grid md:grid-cols-[6fr_5fr] gap-10 md:gap-16 items-center ${
+                    reverse ? "md:[&>div:first-child]:order-2" : ""
+                  }`}
+                >
+                  <div className="relative aspect-[4/3] md:aspect-[5/4]">
+                    <Image
+                      src={s.image}
+                      alt={s.imageAlt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <div
+                      className="mb-6 italic"
+                      style={{
+                        fontFamily: "var(--font-display)",
+                        fontSize: "44px",
+                        color: "var(--color-accent-700)",
+                        lineHeight: 1,
+                        fontVariationSettings: '"opsz" 48',
+                      }}
+                    >
+                      {s.num}
+                    </div>
+                    <h3
+                      style={{
+                        fontFamily: "var(--font-display)",
+                        fontSize: "clamp(26px, 2.4vw, 34px)",
+                        lineHeight: 1.15,
+                        letterSpacing: "-0.01em",
+                        color: "var(--color-ink)",
+                        marginBottom: "16px",
+                        fontVariationSettings: '"opsz" 48',
+                      }}
+                    >
+                      {s.title}
+                    </h3>
+                    <p className="type-body-essay max-w-md">{s.body}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* 05 — Single big testimonial. Just ONE quote, big italic, centered. No 3-card grid. */}
+      <section className="bg-white border-t border-[var(--color-line)] py-24 md:py-40">
+        <div className="container-wide max-w-4xl text-center">
+          <blockquote
+            className="italic"
+            style={{
+              fontFamily: "var(--font-display)",
+              fontWeight: 300,
+              fontSize: "clamp(28px, 3.6vw, 46px)",
+              lineHeight: 1.35,
+              letterSpacing: "-0.015em",
+              color: "var(--color-ink)",
+              fontVariationSettings: '"opsz" 72',
+            }}
+          >
+            &ldquo;{featuredTestimonial.body}&rdquo;
+          </blockquote>
+          <div className="mt-10 text-sm" style={{ letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--color-graphite)" }}>
+            {featuredTestimonial.attribution} · {featuredTestimonial.role}
+          </div>
+          <div className="mt-12">
+            <Link
+              href="/about#testimonials"
+              className="text-xs font-medium border-b border-[var(--color-line)] pb-1 hover:border-[var(--color-ink)] transition-colors"
+              style={{ letterSpacing: "0.18em", textTransform: "uppercase" }}
+            >
+              More from clients
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 06 — Typography-only territory. Big city names stacked, hairline rules between. No image grid. */}
+      <section className="bg-[var(--color-ink)] text-white border-t border-[var(--color-line)]">
+        <div className="container-wide max-w-5xl py-20 md:py-28">
+          <p
+            className="text-xs uppercase mb-12 text-center"
+            style={{
+              letterSpacing: "0.28em",
+              color: "rgba(255,255,255,0.6)",
+              fontWeight: 500,
+            }}
+          >
+            Where I work
+          </p>
+          <ul className="text-center">
+            {areas.map((a, i) => (
+              <li
+                key={a}
+                className={`py-6 ${
+                  i === 0 ? "border-y" : "border-b"
+                } border-white/15`}
+              >
+                <span
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontWeight: 300,
+                    fontSize: "clamp(28px, 4vw, 56px)",
+                    letterSpacing: "-0.01em",
+                    fontVariationSettings: '"opsz" 96',
+                  }}
+                >
+                  {a}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* 07 — Full-bleed bottom photo + simple CTA link. Mirrors hero structure. */}
+      <section className="relative h-[80vh] min-h-[520px] w-full overflow-hidden bg-[var(--color-ink)]">
+        <Image
+          src="/images/editorial/presale-tower.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/35" />
+        <div className="container-wide relative h-full flex flex-col justify-center items-center text-center text-white">
+          <p
+            className="mb-8 max-w-xl"
+            style={{
+              fontFamily: "var(--font-display)",
+              fontStyle: "italic",
+              fontWeight: 300,
+              fontSize: "clamp(24px, 3vw, 36px)",
+              lineHeight: 1.35,
+              fontVariationSettings: '"opsz" 60',
+            }}
+          >
+            Looking at a specific listing or thinking about a move?
+          </p>
+          <Link
+            href="/contact"
+            className="inline-block text-sm font-medium border-b border-white pb-1 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition-colors"
+            style={{ letterSpacing: "0.18em", textTransform: "uppercase" }}
+          >
+            Start a conversation →
           </Link>
         </div>
       </section>

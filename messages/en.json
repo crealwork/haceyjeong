@@ -1,137 +1,159 @@
 {
   "meta": {
-    "title": "{{BRAND_NAME}} — {{TAGLINE}} | {{REALTOR_NAME}}, REALTOR®",
-    "description": "{{REALTOR_NAME}}, REALTOR® with {{BROKERAGE}}. {{SHORT_BIO_140_CHARS}}"
+    "title": "Hacey Jeong, REALTOR® — Notes from Vancouver Island",
+    "description": "Hacey Jeong, REALTOR® with Royal LePage Nanaimo Realty. Bilingual EN/KO. Helping buyers and sellers across Nanaimo, Parksville, Qualicum Beach, Ladysmith, Duncan, and Victoria."
   },
   "masthead": {
-    "tagline": "{{MASTHEAD_TAGLINE}} · {{SERVICE_AREA}} · {{YEAR}}—"
+    "tagline": "Notes · Vancouver Island · 2026—"
   },
   "nav": {
     "home": "Home",
-    "presales": "Presales",
+    "presales": "The Playbook",
     "value": "Home Value",
     "about": "About",
     "contact": "Contact"
   },
   "hero": {
-    "eyebrow": "{{BRAND_NAME}}",
-    "headline": "{{HERO_HEADLINE_LINE_1}},\n{{HERO_HEADLINE_LINE_2}}.",
-    "ctaPrimary": "Read the field notes",
+    "eyebrow": "Hacey Jeong, REALTOR®",
+    "headline": "Vancouver Island,\nyour next chapter.",
+    "ctaPrimary": "Read the playbook",
     "ctaSecondary": "Get in touch"
   },
   "homeContents": {
     "heading": "Contents",
     "entries": [
-      { "num": 1, "label": "{{TOC_ENTRY_1_LABEL}}", "href": "#editor-note" },
-      { "num": 2, "label": "{{TOC_ENTRY_2_LABEL}}", "href": "#field-notes" },
-      { "num": 3, "label": "{{TOC_ENTRY_3_LABEL}}", "href": "#territory" },
-      { "num": 4, "label": "{{TOC_ENTRY_4_LABEL}}", "href": "#pull-quote" },
-      { "num": 5, "label": "{{TOC_ENTRY_5_LABEL}}", "href": "#subscribe" }
+      { "num": 1, "label": "A note from Hacey", "href": "#editor-note" },
+      { "num": 2, "label": "What I do", "href": "#field-notes" },
+      { "num": 3, "label": "Where I work", "href": "#territory" },
+      { "num": 4, "label": "From clients", "href": "#testimonials" },
+      { "num": 5, "label": "On the work", "href": "#pull-quote" },
+      { "num": 6, "label": "Get in touch", "href": "#subscribe" }
     ]
   },
   "editorNote": {
-    "eyebrow": "{{EDITOR_NOTE_EYEBROW}}",
-    "body": "{{EDITOR_NOTE_BODY — 2-3 sentences. Personal opening that establishes credibility. What background does this realtor bring? What do they see differently?}}",
-    "signoff": "— {{REALTOR_FIRST_NAME}}"
+    "eyebrow": "A note from Hacey",
+    "body": "I came to Vancouver Island after thirty countries and three careers — chemical engineering, the global oil & gas industry, then ownership of my own businesses. I chose this place because it asked the right things of me. Now I help others arrive here, settle here, and decide when it's time to move on. The work is part analysis, part patience, and entirely personal.",
+    "signoff": "— Hacey"
   },
   "fieldNotes": {
-    "title": "{{FIELD_NOTES_SECTION_TITLE}}",
+    "title": "What I do",
     "presale": {
-      "title": "{{SERVICE_1_TITLE}}",
-      "body": "{{SERVICE_1_BODY — 1-2 sentences on what this realtor does for presale clients.}}"
+      "title": "First-time buyers",
+      "body": "Inspections, financing, strata documents, closing — at your pace, in plain language."
     },
     "resale": {
-      "title": "{{SERVICE_2_TITLE}}",
-      "body": "{{SERVICE_2_BODY — 1-2 sentences on resale coverage.}}"
+      "title": "Resale homes",
+      "body": "Condos, townhomes, and detached listings across the central and south Island."
     },
     "investment": {
-      "title": "{{SERVICE_3_TITLE}}",
-      "body": "{{SERVICE_3_BODY — investment or niche service.}}"
+      "title": "Investment property",
+      "body": "Rental yield, cycle positioning, and exit planning — practical, not promotional."
     },
     "firstHome": {
-      "title": "{{SERVICE_4_TITLE}}",
-      "body": "{{SERVICE_4_BODY — first-time buyer or another core service.}}"
+      "title": "Luxury & relocation",
+      "body": "Whether it's a luxury home or a full move-from-overseas, I handle it the same way: with quiet attention to every detail."
     }
   },
   "territory": {
-    "eyebrow": "{{TERRITORY_EYEBROW}}",
-    "title": "{{TERRITORY_HEADLINE}}",
-    "body": "{{TERRITORY_BODY — 1-2 sentences describing the service area geography and any corridors of focus.}}",
-    "areas": ["{{AREA_1}}", "{{AREA_2}}", "{{AREA_3}}", "{{AREA_4}}", "{{AREA_5}}", "{{AREA_6}}"]
+    "eyebrow": "The Island",
+    "title": "Where I work — and what I notice.",
+    "body": "Primary coverage runs the central and south Island, with a closer eye on relocation-active corridors: Nanaimo, Parksville, Qualicum Beach, and Victoria.",
+    "areas": ["Nanaimo", "Parksville", "Qualicum Beach", "Ladysmith", "Duncan", "Victoria"]
+  },
+  "testimonials": {
+    "eyebrow": "From clients",
+    "title": "What people say.",
+    "items": [
+      {
+        "body": "I was buying my first house, and obviously scared. Hacey met me with kindness, a bubbly personality and made my whole experience feel personal and human. She shared her opinions on the different locations and buildings — what she thought would best suit me. When she gave me my keys, she got me a Christmas basket, and was genuinely happy for me. Thank you so much Hacey!",
+        "attribution": "Ava Bayers",
+        "role": "First-time buyer"
+      },
+      {
+        "body": "We just bought our first house with Hacey and we couldn't be more thrilled. She walked us through the process step by step, answered every question quickly, and always stayed on top of everything. She always had our best interest in mind. She's a wonderful realtor and I highly recommend her to anyone buying or selling a home.",
+        "attribution": "Frankie Radcliffe",
+        "role": "First-time buyer"
+      },
+      {
+        "body": "Hacey, heartfelt thank you for supporting me as I felt my way through what's going to fit best for me and my kids. I appreciate your kindness, willingness to adjust to the spectrum of properties viewed, and always prompt responses. We shared some great laughs along the way too. You're a pleasure to work with and I'd recommend your expertise.",
+        "attribution": "Kirsten Davis",
+        "role": "Buyer"
+      }
+    ]
   },
   "pullQuote": {
-    "text": "{{PULL_QUOTE_TEXT — one memorable line about this realtor's approach or philosophy.}}",
-    "attribution": "{{PULL_QUOTE_ATTRIBUTION}}"
+    "text": "I don't just assist — I guide you through every stage with clarity and care.",
+    "attribution": "from the playbook"
   },
   "subscribe": {
-    "eyebrow": "{{SUBSCRIBE_EYEBROW}}",
-    "title": "{{SUBSCRIBE_TITLE — question or invitation to reach out.}}",
-    "body": "{{SUBSCRIBE_BODY — 1 sentence CTA.}}",
+    "eyebrow": "Get in touch",
+    "title": "Looking at a specific listing or thinking about a move?",
+    "body": "Send me what you've found. I'll read it carefully and write back.",
     "button": "Send a note"
   },
   "about": {
-    "eyebrow": "About / {{ABOUT_EYEBROW_SUFFIX}}",
-    "title": "{{REALTOR_FULL_NAME}}",
-    "subtitle": "{{REALTOR_TITLE}} · {{BROKERAGE}}",
-    "bio": "{{SHORT_BIO — 1-2 sentences. REALTOR® designation, service area, any bilingual notes.}}",
-    "essayParagraph1": "{{ABOUT_ESSAY_P1 — 3-4 sentences. Career background, credibility, how they got here.}}",
-    "essayCaption": "{{ABOUT_ESSAY_PHOTO_CAPTION — e.g. 'On a site visit in [neighborhood], [year].'}}",
-    "essayParagraph2": "{{ABOUT_ESSAY_P2 — 2-3 sentences. How their background benefits the client. End with the core promise.}}"
+    "eyebrow": "About / The author",
+    "title": "Hacey Jeong",
+    "subtitle": "REALTOR® · Royal LePage Nanaimo Realty",
+    "bio": "Bilingual REALTOR® serving Vancouver Island. Background in chemical engineering, global oil & gas, and small-business ownership.",
+    "essayParagraph1": "Having travelled to over thirty countries and lived through the full relocation journey myself, I chose Vancouver Island as my home with clarity and intention. Originally from South Korea and a graduate of Korea University in Chemical Engineering, my career has taken me from the global oil & gas industry into entrepreneurship, and now to real estate. Each chapter taught me how to read complex situations, ask the right questions, and stay calm when the stakes are high.",
+    "essayCaption": "On the central Island, 2026.",
+    "essayParagraph2": "Because I personally navigated immigration, housing, settlement, career transitions, and cultural adjustment, I understand what clients truly care about — finding the right community, making confident buying and selling decisions, and managing both the emotional and practical sides of a move. With a background in engineering, corporate strategy, and business ownership, I bring a blend of analytical thinking, organization, data-driven strategy, marketing, and calm problem-solving to every transaction."
   },
   "aboutPullQuote": {
-    "text": "{{ABOUT_PULL_QUOTE_TEXT}}",
-    "attribution": "{{ABOUT_PULL_QUOTE_ATTRIBUTION}}"
+    "text": "I don't just assist — I guide you through every stage with clarity and care.",
+    "attribution": "from the playbook"
   },
   "background": {
     "title": "Background",
     "items": {
-      "brokerage": "{{BROKERAGE}}",
-      "previous": "{{PREVIOUS_EXPERIENCE — e.g. 'Company A · Company B'}}",
-      "languages": "{{LANGUAGES — e.g. 'English · Korean'}}",
-      "area": "{{SERVICE_AREA_LABEL}}"
+      "brokerage": "Royal LePage Nanaimo Realty",
+      "previous": "Global oil & gas · entrepreneurship",
+      "languages": "English · 한국어",
+      "area": "Vancouver Island, BC"
     }
   },
   "aboutBridge": {
-    "body": "{{ABOUT_BRIDGE_QUESTION}}",
+    "body": "Have a question I should add to the playbook?",
     "cta": "Get in touch"
   },
   "presalesPage": {
-    "eyebrow": "{{PRESALES_EYEBROW}}",
-    "title": "{{PRESALES_HEADLINE}}",
-    "subtitle": "{{PRESALES_SUBTITLE}}",
-    "intro": "{{PRESALES_INTRO — 3-4 sentences explaining what a presale purchase is and what the risks are. Educate without promoting.}}",
+    "eyebrow": "The Playbook",
+    "title": "Buying and selling on the Island.",
+    "subtitle": "A working notebook for Vancouver Island buyers, sellers, and movers.",
+    "intro": "Vancouver Island runs on its own rhythm. Inventory is tighter than the mainland, the buyer pool changes by season, and the same neighbourhood can feel very different depending on whether you're commuting to the harbour, raising kids near a beach, or retiring near a vineyard. Below is the working set of questions I walk every client through — first-time buyer, relocation, or seller.",
     "checklist": {
-      "title": "{{PRESALES_CHECKLIST_TITLE}}",
+      "title": "The 8-point review",
       "items": [
-        { "title": "{{CHECKLIST_1_TITLE}}", "body": "{{CHECKLIST_1_BODY}}" },
-        { "title": "{{CHECKLIST_2_TITLE}}", "body": "{{CHECKLIST_2_BODY}}" },
-        { "title": "{{CHECKLIST_3_TITLE}}", "body": "{{CHECKLIST_3_BODY}}" },
-        { "title": "{{CHECKLIST_4_TITLE}}", "body": "{{CHECKLIST_4_BODY}}" },
-        { "title": "{{CHECKLIST_5_TITLE}}", "body": "{{CHECKLIST_5_BODY}}" },
-        { "title": "{{CHECKLIST_6_TITLE}}", "body": "{{CHECKLIST_6_BODY}}" },
-        { "title": "{{CHECKLIST_7_TITLE}}", "body": "{{CHECKLIST_7_BODY}}" },
-        { "title": "{{CHECKLIST_8_TITLE}}", "body": "{{CHECKLIST_8_BODY}}" }
+        { "title": "Why this place, why now", "body": "What's the actual reason for the move? Lifestyle, family, work, retirement — each leads to a different shortlist." },
+        { "title": "Community fit", "body": "Walkability, schools, neighbours, the drive to the ferry. What does a normal Tuesday look like here?" },
+        { "title": "Inspection & condition", "body": "Island homes range from brand-new builds to heritage cottages. The inspection scope changes accordingly." },
+        { "title": "Financing & timing", "body": "Pre-approval is a date stamp, not a guarantee. Rate moves, bridge timing, and overseas funds add complexity." },
+        { "title": "Tax exposure", "body": "GST on new builds, Property Transfer Tax, foreign buyer rules, speculation tax. None appear on the price tag." },
+        { "title": "Strata & bylaws", "body": "If it's a condo or townhome — bylaws, depreciation reports, age-restriction clauses, rental rules. All in the documents." },
+        { "title": "Selling timing", "body": "If you're selling first, when do you list, when do you close, and where do you live in between?" },
+        { "title": "After the keys", "body": "Utilities, insurance, settlement basics, where to find a doctor. The work doesn't end at completion." }
       ]
     }
   },
   "presalesMethod": {
-    "title": "{{PRESALES_METHOD_TITLE}}",
-    "body": "{{PRESALES_METHOD_BODY — how compensation works, why advice is honest.}}"
+    "title": "On method",
+    "body": "I don't push, I read carefully and write back honestly. If a property isn't right for you, I'll say so — even if that means waiting a few months for the right one. The brokerage compensation comes from the transaction; the trust comes from being straight with you. That's the only way the work compounds."
   },
   "presalesCta": {
-    "text": "{{PRESALES_CTA_TEXT}}",
-    "button": "{{PRESALES_CTA_BUTTON}}"
+    "text": "Looking at a specific listing or thinking about a move? Let's review it together.",
+    "button": "Send the listing"
   },
   "contactPage": {
     "eyebrow": "Contact",
-    "title": "{{CONTACT_HEADLINE}}",
-    "subtitle": "{{CONTACT_SUBTITLE}}",
+    "title": "Let me help you settle in.",
+    "subtitle": "Most replies within a few hours. For anything urgent, call or text directly. 한국어로 편하게 연락하셔도 됩니다.",
     "form": {
       "name": "Your name",
       "email": "Email",
       "phone": "Phone",
       "message": "Tell me what you're looking for",
-      "messagePlaceholder": "{{CONTACT_FORM_PLACEHOLDER — example inquiry matching this realtor's niche}}",
+      "messagePlaceholder": "e.g. relocating to Nanaimo from Korea this fall, looking at 3-bed townhomes near schools, budget around $750K…",
       "submit": "Send message",
       "sending": "Sending…",
       "success": "Thanks — I'll be in touch shortly.",
@@ -144,15 +166,15 @@
     },
     "office": {
       "title": "Brokerage",
-      "name": "{{BROKERAGE}}",
-      "address": "{{BROKERAGE_ADDRESS}}",
+      "name": "Royal LePage Nanaimo Realty",
+      "address": "Nanaimo, BC",
       "phone": "Office"
     }
   },
   "footer": {
-    "tagline": "{{FOOTER_TAGLINE}}",
+    "tagline": "Notes from Vancouver Island.",
     "proudlyWith": "Proudly with",
     "rights": "All rights reserved.",
-    "compliance": "{{REALTOR_FULL_NAME}}, REALTOR® · {{BROKERAGE}}"
+    "compliance": "Hacey Jeong, REALTOR® · Royal LePage Nanaimo Realty · BCFSA RE604910"
   }
 }

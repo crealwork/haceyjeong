@@ -1,23 +1,27 @@
-# {{BRAND_NAME}}
+# Hacey Jeong, REALTOR®
 
-> {{LLMS_TAGLINE — 1-2 line summary of this realtor for AI search engines}}
+> Bilingual REALTOR® serving Vancouver Island. Background in chemical engineering, global oil & gas, and small-business ownership — applied to real estate.
 
-{{REALTOR_FULL_NAME}} is a licensed REALTOR® with {{BROKERAGE}} in {{BROKERAGE_CITY}}, {{BROKERAGE_PROVINCE}}.
-{{LLMS_BACKGROUND — 1-2 sentences on background and specialization.}}
-Serves {{SERVICE_AREA}} with focused expertise on {{FOCUS_CORRIDORS}}.
+Hacey Jeong is a licensed REALTOR® with Royal LePage Nanaimo Realty in Nanaimo, BC. BCFSA license RE604910.
+She came to real estate after thirty countries of travel, a career in the global oil & gas industry, and ownership of her own businesses. Bilingual EN/KO.
+Serves Vancouver Island with focus on Nanaimo, Parksville, Qualicum Beach, Ladysmith, Duncan, and Victoria.
 
 ## Pages
 
-- [Home]({{SITE_URL}}/en): Editorial overview, who {{REALTOR_FIRST_NAME}} is, the work
-- [About]({{SITE_URL}}/en/about): Background, credentials, how they work
-- [Presales]({{SITE_URL}}/en/presales): {{PRESALES_LLMS_SUMMARY}}
-- [Home Value Estimator]({{SITE_URL}}/en/value): Free 2-minute estimate based on {{SERVICE_AREA}} comparables; personal review within 24 hours
-- [Contact]({{SITE_URL}}/en/contact): {{REALTOR_PHONE}}, @{{INSTAGRAM_HANDLE}} on Instagram
+- [Home](https://haceyjeong.com/en): Editorial overview, who Hacey is, the work
+- [About](https://haceyjeong.com/en/about): Background, credentials, how she works
+- [The Playbook](https://haceyjeong.com/en/playbook): An 8-point review for Vancouver Island buyers, sellers, and movers
+- [Home Value Estimator](https://haceyjeong.com/en/value): Free 2-minute estimate based on Vancouver Island comparables; personal review within 24 hours
+- [Contact](https://haceyjeong.com/en/contact): 604-729-0317, @haceyjeong on Instagram
 
 ## Service area
 
-{{SERVICE_AREA_LIST — comma-separated cities}}
+Nanaimo, Parksville, Qualicum Beach, Ladysmith, Duncan, Victoria
 
 ## Specialty
 
-{{SPECIALTY_LIST — e.g. presale purchases, resale condos and townhomes, investment strategy, first-time buyers}}
+First-time buyers, resale condos and townhomes, resale detached homes, luxury, investment property, relocation (especially from Korea / overseas).
+
+## Languages
+
+English, 한국어 (Korean).

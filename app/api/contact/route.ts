@@ -18,8 +18,7 @@ export async function POST(req: Request) {
     email,
     phone: phone || "",
     message,
-    // TODO: replace with actual production domain
-    source: `${process.env.NEXT_PUBLIC_SITE_URL ?? "example.ca"}/contact`,
+    source: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://haceyjeong.com"}/contact`,
   };
 
   if (webhookUrl) {

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import Image from "next/image";
 import type { Locale } from "@/i18n/routing";
 import EstimatorForm from "@/components/EstimatorForm";
 
-// TODO: replace with actual production domain (set NEXT_PUBLIC_SITE_URL env var)
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.ca";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://haceyjeong.com";
 
 export async function generateMetadata({
   params,
@@ -12,26 +12,15 @@ export async function generateMetadata({
   params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const isEn = locale === "en";
   return {
-    // TODO: replace with brand-specific value page title and description
-    title: isEn
-      ? "Home Value Estimator — {{SERVICE_AREA}} | {{BRAND_NAME}}"
-      : "홈 가치 추정기 — {{SERVICE_AREA_KO}} | {{BRAND_NAME_KO}}",
-    description: isEn
-      ? "Free 2-minute home value estimate based on {{SERVICE_AREA}} comparables. Personal review from {{REALTOR_FULL_NAME}}, REALTOR®, within 24 hours."
-      : "{{VALUE_META_DESCRIPTION_KO}}",
-    alternates: {
-      canonical: `${BASE_URL}/${locale}/value`,
-      languages: {
-        en: `${BASE_URL}/en/value`,
-        ko: `${BASE_URL}/ko/value`,
-      },
-    },
+    title: "Home Value Review — Vancouver Island | Hacey Jeong",
+    description:
+      "Personal home value review from Hacey Jeong, REALTOR®. Send a few details about your Vancouver Island property — Hacey emails you a refined value range within 24 hours. No automated estimate.",
+    alternates: { canonical: `${BASE_URL}/${locale}/value` },
     openGraph: {
-      // TODO: replace with brand-specific OG title and description
-      title: "Home Value Estimator — {{SERVICE_AREA}} | {{BRAND_NAME}}",
-      description: "Free 2-minute estimate based on {{SERVICE_AREA}} comparables. Personal review from {{REALTOR_FULL_NAME}}, REALTOR®, within 24 hours.",
+      title: "Home Value Review — Vancouver Island",
+      description:
+        "Personal home value review from Hacey Jeong, REALTOR® — emailed within 24 hours. No automated estimate.",
       url: `${BASE_URL}/${locale}/value`,
       type: "website",
       images: [
@@ -39,17 +28,17 @@ export async function generateMetadata({
           url: "/images/editorial/arch-break.jpg",
           width: 1536,
           height: 1024,
-          alt: "{{VALUE_OG_IMAGE_ALT}}",
+          alt: "A warm corner of a Pacific Northwest interior.",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Home Value Estimator — {{SERVICE_AREA}} | {{BRAND_NAME}}",
-      description: "Free 2-minute estimate based on {{SERVICE_AREA}} comparables. Personal review from {{REALTOR_FULL_NAME}}, REALTOR®, within 24 hours.",
+      title: "Home Value Review — Vancouver Island",
+      description:
+        "Personal review from Hacey Jeong, REALTOR® — emailed within 24 hours. No automated estimate.",
       images: ["/images/editorial/arch-break.jpg"],
     },
-    robots: locale === "ko" ? { index: false, follow: false } : undefined,
   };
 }
 
@@ -63,22 +52,58 @@ export default async function ValuePage({
 
   return (
     <>
-      <section className="pt-32 md:pt-40 pb-12 md:pb-16 bg-[var(--color-canvas)]">
-        <div className="container-wide max-w-4xl">
-          <p className="eyebrow mb-6">Home value</p>
-          <h1 className="type-hero-headline mb-6">What's your home worth?</h1>
+      {/* 01 — Full-bleed hero (vs Chloe pattern's pt-32 + eyebrow + headline). Short version. */}
+      <section className="relative h-[55vh] min-h-[420px] w-full overflow-hidden bg-[var(--color-ink)]">
+        <Image
+          src="/images/editorial/arch-break.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/30" />
+        <div className="container-wide relative h-full flex flex-col justify-end pb-12 md:pb-16">
           <p
-            className="text-xl italic max-w-2xl"
-            style={{ fontFamily: "var(--font-display)", color: "var(--color-graphite)" }}
+            className="text-xs uppercase mb-4"
+            style={{
+              letterSpacing: "0.28em",
+              color: "rgba(255,255,255,0.7)",
+              fontWeight: 500,
+            }}
           >
-            {/* TODO: replace with brand-specific subtitle referencing the realtor's name and market */}
-            {"A two-minute estimate based on {{SERVICE_AREA}} comparables, plus a personal review from {{REALTOR_FIRST_NAME}} within 24 hours."}
+            Home Value
+          </p>
+          <h1
+            style={{
+              fontFamily: "var(--font-display)",
+              fontWeight: 400,
+              fontSize: "clamp(36px, 5vw, 64px)",
+              lineHeight: 1.05,
+              letterSpacing: "-0.02em",
+              color: "#ffffff",
+            }}
+          >
+            What&rsquo;s your home worth?
+          </h1>
+          <p
+            className="mt-4 max-w-2xl"
+            style={{
+              fontFamily: "var(--font-display)",
+              fontStyle: "italic",
+              fontSize: "clamp(18px, 1.6vw, 22px)",
+              lineHeight: 1.4,
+              color: "rgba(255,255,255,0.9)",
+            }}
+          >
+            Send a few details about your property — Hacey reviews it personally and emails you a refined value within 24 hours.
           </p>
         </div>
       </section>
 
-      <section className="pb-24 md:pb-32 bg-white">
-        <div className="container-wide max-w-3xl">
+      {/* 02 — Form, single full-width column on warm canvas (vs sidebar pattern). */}
+      <section className="bg-[var(--color-canvas)] py-20 md:py-28">
+        <div className="container-wide max-w-2xl">
           <EstimatorForm />
         </div>
       </section>
