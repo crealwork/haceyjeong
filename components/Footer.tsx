@@ -70,7 +70,7 @@ export default function Footer() {
         <div className="mt-6 text-[11px] text-[var(--color-graphite)]/80 max-w-md mx-auto">
           Built with{" "}
           <a
-            href="https://sundayable.com"
+            href="https://www.sundayable.com/realtors"
             target="_blank"
             rel="noreferrer"
             className="text-[var(--color-charcoal)] hover:text-[var(--color-accent-700)] underline-offset-2 hover:underline transition-colors"
