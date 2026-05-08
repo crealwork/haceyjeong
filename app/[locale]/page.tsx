@@ -85,8 +85,8 @@ const specialties: Specialty[] = [
     num: "05",
     title: "Commercial properties & business sales",
     body: "Retail, restaurants, cafés, and business asset sales.",
-    image: "/images/editorial/neighborhood-1.jpg",
-    imageAlt: "A Vancouver Island streetscape.",
+    image: "/images/editorial/commercial-storefront.jpg",
+    imageAlt: "An Old Town Nanaimo café storefront, brick and warm awning, harbour reflected in the window.",
   },
 ];
 
