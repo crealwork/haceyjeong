@@ -63,7 +63,7 @@ const specialties: Specialty[] = [
   {
     num: "02",
     title: "Resale homes",
-    body: "Condos, townhomes, and detached listings across the central and south Island.",
+    body: "Condos, townhomes, and detached listings across the whole island.",
     image: "/images/editorial/arch-break.jpg",
     imageAlt: "A warm corner of a Pacific Northwest cabin.",
   },
@@ -80,6 +80,13 @@ const specialties: Specialty[] = [
     body: "Whether it's a luxury home or a full move-from-overseas, I handle it the same way: with quiet attention to every detail.",
     image: "/images/editorial/presale-detail-scaffolding.jpg",
     imageAlt: "Arbutus bark, peeling in warm rust ribbons.",
+  },
+  {
+    num: "05",
+    title: "Commercial properties & business sales",
+    body: "Retail, restaurants, cafés, and business asset sales.",
+    image: "/images/editorial/neighborhood-1.jpg",
+    imageAlt: "A Vancouver Island streetscape.",
   },
 ];
 
@@ -295,13 +302,15 @@ export default async function HomePage({
             {featuredTestimonial.attribution} · {featuredTestimonial.role}
           </div>
           <div className="mt-12">
-            <Link
-              href="/about#testimonials"
+            <a
+              href="https://www.realtor.ca/agent/2204739/hacey-jeong-4200-island-highway-north-nanaimo-british-columbia-v9t1w6#RankMyAgent"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-xs font-medium border-b border-[var(--color-line)] pb-1 hover:border-[var(--color-ink)] transition-colors"
               style={{ letterSpacing: "0.18em", textTransform: "uppercase" }}
             >
               More from clients
-            </Link>
+            </a>
           </div>
         </div>
       </section>

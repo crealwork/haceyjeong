@@ -43,7 +43,7 @@
     },
     "resale": {
       "title": "Resale homes",
-      "body": "Condos, townhomes, and detached listings across the central and south Island."
+      "body": "Condos, townhomes, and detached listings across the whole island."
     },
     "investment": {
       "title": "Investment property",
@@ -52,6 +52,10 @@
     "firstHome": {
       "title": "Luxury & relocation",
       "body": "Whether it's a luxury home or a full move-from-overseas, I handle it the same way: with quiet attention to every detail."
+    },
+    "commercial": {
+      "title": "Commercial properties & business sales",
+      "body": "Retail, restaurants, cafés, and business asset sales."
     }
   },
   "territory": {
@@ -65,6 +69,11 @@
     "title": "What people say.",
     "items": [
       {
+        "body": "Hacey, heartfelt thank you for supporting me as I felt my way through what's going to fit best for me and my kids. I appreciate your kindness, willingness to adjust to the spectrum of properties viewed, and always prompt responses. We shared some great laughs along the way too! You're a pleasure to work with and I'd recommend your expertise!",
+        "attribution": "Kirsten Marchbank",
+        "role": "Buyer"
+      },
+      {
         "body": "I was buying my first house, and obviously scared. Hacey met me with kindness, a bubbly personality and made my whole experience feel personal and human. She shared her opinions on the different locations and buildings — what she thought would best suit me. When she gave me my keys, she got me a Christmas basket, and was genuinely happy for me. Thank you so much Hacey!",
         "attribution": "Ava Bayers",
         "role": "First-time buyer"
@@ -73,11 +82,6 @@
         "body": "We just bought our first house with Hacey and we couldn't be more thrilled. She walked us through the process step by step, answered every question quickly, and always stayed on top of everything. She always had our best interest in mind. She's a wonderful realtor and I highly recommend her to anyone buying or selling a home.",
         "attribution": "Frankie Radcliffe",
         "role": "First-time buyer"
-      },
-      {
-        "body": "Hacey, heartfelt thank you for supporting me as I felt my way through what's going to fit best for me and my kids. I appreciate your kindness, willingness to adjust to the spectrum of properties viewed, and always prompt responses. We shared some great laughs along the way too. You're a pleasure to work with and I'd recommend your expertise.",
-        "attribution": "Kirsten Davis",
-        "role": "Buyer"
       }
     ]
   },

@@ -66,7 +66,7 @@ Hard-won lessons from building Home Sweet Chloe (2026-04). When something feels 
 
 ### Tailwind v4 `@theme` vs `:root`
 
-- Tailwind v4 requires custom properties in both `@theme {}` (for Tailwind to recognize them in classes like `bg-[var(...)]`) AND `:root {}` (for runtime CSS access)
+- Tailwind v4 requires custom properties in both `@theme {}` (for Tailwind to recognize them in classes like `bg-[var(--my-var)]`) AND `:root {}` (for runtime CSS access)
 - If you add a new color and it doesn't work in Tailwind classes, add it to `@theme` in globals.css
 
 ---
