@@ -4,6 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing, type Locale } from "@/i18n/routing";
 import { Cormorant_Garamond, Inter } from "next/font/google";
+import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
@@ -146,6 +147,19 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <body>
+        {/* Google tag (gtag.js) — GA4 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-BJB0KR4VYC"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-BJB0KR4VYC');
+          `}
+        </Script>
         <NextIntlClientProvider>
           <Header />
           <main>{children}</main>
